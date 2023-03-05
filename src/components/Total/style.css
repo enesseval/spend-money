@@ -1,0 +1,35 @@
+.total{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 25px auto 0 auto;
+}
+
+.totalItem{
+    display: grid;
+    grid-gap: 20px 0;
+    grid-template-columns: 350px 45px 75px;
+}
+
+.totalItem > p:last-child {
+    font-weight: bold;
+    color: #24C486;
+}
+
+.totalItemReceipt{
+    display: grid;
+    grid-gap: 20px 0;
+    grid-template-columns: 335px 135px;
+    border-top: 2px solid black;
+    max-width: 470px;
+}
+
+.totalItemReceipt > p{
+    font-weight: bold;
+}
+
+.totalItemReceipt > p:last-child{
+    color: #24C486;
+}

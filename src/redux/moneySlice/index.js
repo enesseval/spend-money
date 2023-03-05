@@ -1,10 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const receiptItems = (items) => {
+	let res = items.filter((item) => item.piece !== 0);
+	return res;
+};
+
 export const moneySlice = createSlice({
 	name: "money",
 	initialState: {
-		firstMoney: 100000000,
-		totalMoney: 100000000,
+		firstMoney: 100000000000,
+		totalMoney: 100000000000,
 		items: [
 			{
 				img: "https://i.imgur.com/jImRpPw.jpg",
@@ -349,6 +354,7 @@ export const moneySlice = createSlice({
 				piece: 0,
 			},
 		],
+		receipts: [],
 	},
 	reducers: {
 		decrementPiece: (state, action) => {
@@ -359,9 +365,12 @@ export const moneySlice = createSlice({
 			state.items[action.payload.index].piece = action.payload.value;
 			state.totalMoney -= state.items[action.payload.index].price;
 		},
+		selectReceipts: (state) => {
+			state.receipts = receiptItems(state.items);
+		},
 	},
 });
 
-export const { decrementPiece, incrementPiece } = moneySlice.actions;
+export const { decrementPiece, incrementPiece, selectReceipts } = moneySlice.actions;
 
 export default moneySlice.reducer;
